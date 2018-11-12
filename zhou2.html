@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<p>距离2018年1月1日还有 小时 分钟 秒</p>
+</body>
+<script type="text/javascript">
+    var show  =  document.getElementsByTagName('p')[0];
+
+    function getTime(){
+        //创建时间（现在）
+        var nowDate = new Date();
+        //2018年时间对象
+        var nextDate = new Date(2019,1,1);
+        //获取两个时间点 距离1970.0.1的时间（毫秒数）
+        var nowTime = nowDate.getTime();
+        var nextTime = nextDate.getTime();
+        //根据差值可以计算出 现在距离2018年的毫秒数 进而计算出秒数（毫秒数/1000）
+        var dSecond= parseInt((nextTime - nowTime) / 1000);
+
+
+        //通过现在距离2018年的秒数求出天数（秒数/24*60*60）
+        var dDay = parseInt(dSecond/(24*60*60));
+
+        //通过现在距离2018年的秒数取余 求出 去掉天数剩下的秒数
+        var reSecond = dSecond % (24*60*60);
+
+
+        //通过计算完剩下的秒数  求出小时数
+
+
+        var dHour = parseInt(reSecond / 3600);
+        console.log(dHour);
+
+
+        //通过计算小时 剩下的秒数 求分钟数
+
+
+        var reSecond1 = reSecond % 3600;
+
+
+        var dMinute = parseInt(reSecond1 / 60);
+        console.log(dMinute);
+        //通过计算分钟数 剩下的秒数  就是我们想要的描述
+
+
+        var nowSecond = reSecond1 % 60;
+
+
+        show.innerHTML = '距离2019年1月1日还有' +dDay+ '天' +dHour+ '小时' +dMinute+ '分钟' +nowSecond+ '秒';
+    }
+
+
+    getTime();
+    setInterval(function () {
+        getTime();
+    },1000)
+</script>
+</html>

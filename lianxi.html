@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color: #8c8c8c">
+
+    <p style="background-color: green; height: 80px; width: 150px; text-align: center; line-height: 80px; cursor:pointer ">添加题干</p>
+    <div style="display: none;">
+        <form id="from">
+            <div id="tg">
+                <input onblur="opp($(this))"  type="text" placeholder="请输入题干">
+                <a onclick="op($(this))" href="javascript:void (0)">删除</a>
+
+
+            </div>
+        </form>
+    </div>
+
+<div id="zhan" style="background-color: #0f74a8; width: 1000px ">
+
+
+    <div style="display: none">
+
+    <span id="sp" >
+
+        </span>
+    </div>
+    <div >
+        <span id="spo" >
+
+        </span>
+    </div>
+
+</div>
+</body>
+</html>
+<script src="./public\jquery-1.8.3.js"></script>
+<script>
+    $(document).on('click',"p",function () {
+        var opp=$('#tg').clone();
+        $('#zhan').append(opp);
+    })
+    var op= function (thisr) {
+        thisr.closest('#tg').remove();
+        
+    }
+    var opp=function(th){
+        $('#spo').html(' <button >单选</button>\n' +
+            '    <button >多选</button>\n' +
+            '    <button >判断</button>');
+    }
+    $('button').on('click',function () {
+        // alert(111);
+
+        var opp=$("this").text();
+        alert(opp);
+        // if (opp!=''){
+        //     alert(11);
+        // } else{
+        //     alert(22);
+        // }
+
+
+    })
+
+
+
+
+</script>
